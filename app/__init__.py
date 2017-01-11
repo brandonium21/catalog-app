@@ -9,7 +9,7 @@ from flask_login import (UserMixin, login_required, login_user, logout_user,
 
 
 app = Flask(__name__)
-app.config.from_object('config.development')
+app.config.from_pyfile('/var/www/catalog/catalog/config/development')
 db = SQLAlchemy(app)
 googlelogin = GoogleLogin(app)
 

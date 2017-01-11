@@ -17,7 +17,7 @@ from flask_googlelogin import GoogleLogin
 
 
 app = Flask(__name__)
-app.config.from_object('config.development')
+app.config.from_pyfile('./config/development')
 
 app.register_blueprint(pages.blueprint)
 
