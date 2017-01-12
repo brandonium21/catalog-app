@@ -9,7 +9,16 @@ from flask_login import (UserMixin, login_required, login_user, logout_user,
 
 
 app = Flask(__name__)
-app.config.from_pyfile('/var/www/catalog/catalog/config/development')
+#app.config.from_pyfile('/var/www/catalog/catalog/config/development')
+app.config['DEBUG'] = True
+app.config['SECRET_KEY'] = 'my precious'
+app.config['BASE_DIR'] = os.path.abspath(os.path.dirname(__file__))
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(BASE_DIR, 'database.db')
+app.config['HOST'] = 'localhost'
+app.config['PORT'] = int(os.environ.get('PORT', 5000))
+app.config['GOOGLE_LOGIN_CLIENT_ID'] = '587685920544-gc9mn3euijkephv5buceqslf638rv3hq.apps.googleusercontent.com'
+app.config['GOOGLE_LOGIN_CLIENT_SECRET'] = 'NVR3cU79x3XiYAf64z2Thp8-'
+app.config['GOOGLE_LOGIN_REDIRECT_URI'] = 'http://localhost:5000/oauth2callback'
 db = SQLAlchemy(app)
 googlelogin = GoogleLogin(app)
 
