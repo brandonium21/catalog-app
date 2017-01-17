@@ -10,12 +10,6 @@ http://ec2-35-167-131-32.us-west-2.compute.amazonaws.com/
 ```sh
 $ make server
 ```
-# Linux-Server-Configuration-UDACITY
-This is the fifth project for "Full Stack Web Developer Nanodegree" on Udacity. 
-
-In this project, a Linux virtual machine needs to be configurated to support the Item Catalog website.
-
-You can visit http://52.24.125.52 for the website deployed.
 
 ## Tasks
 1. Launch your Virtual Machine with your Udacity account
