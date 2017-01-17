@@ -2,6 +2,8 @@
 Brandon's Catalog app
 
 to run simply:
+## APP URL
+http://ec2-35-167-131-32.us-west-2.compute.amazonaws.com/
 
 ## Run
 
