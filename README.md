@@ -35,12 +35,12 @@ $ make server
 3. Open your terminal and type in
 	```chmod 600 ~/.ssh/udacity_key.rsa```
 4. In your terminal, type in
-	```ssh -i ~/.ssh/udacity_key.rsa root@52.24.125.52```
+	```ssh -i ~/.ssh/udacity_key.rsa root@35.167.131.32```
 5. Development Environment Information
 
 	Public IP Address
 
-	52.24.125.52
+	35.167.131.32
 	
 	Private Key ( is not provided here. )
 
@@ -70,7 +70,7 @@ $ make server
 3. reload SSH using `service ssh restart`
 4. now you can use ssh to login with the new user you created
 
-	`ssh -i [privateKeyFilename] grader@52.24.125.52`
+	`ssh -i [privateKeyFilename] grader@35.167.131.32`
 
 ## Update all currently installed packages
 
@@ -148,15 +148,15 @@ Configure the Uncomplicated Firewall (UFW) to only allow incoming connections fo
 	
 	```
 	<VirtualHost *:80>
-		ServerName 52.24.125.52
-		ServerAdmin qiaowei8993@gmail.com
-		WSGIScriptAlias / /var/www/FlaskApp/flaskapp.wsgi
-		<Directory /var/www/FlaskApp/FlaskApp/>
+		ServerName 35.167.131.32
+		ServerAdmin brandonium21@gmail.com
+		WSGIScriptAlias / /var/www/catalog/catalog.wsgi
+		<Directory /var/www/catalog/catalog/>
 			Order allow,deny
 			Allow from all
 		</Directory>
-		Alias /static /var/www/FlaskApp/FlaskApp/static
-		<Directory /var/www/FlaskApp/FlaskApp/static/>
+		Alias /static /var/www/catalog/catalog/app/static
+		<Directory /var/www/catalog/catalog/app/static/>
 			Order allow,deny
 			Allow from all
 		</Directory>
@@ -171,8 +171,8 @@ Configure the Uncomplicated Firewall (UFW) to only allow incoming connections fo
 1. Create the .wsgi File under /var/www/FlaskApp: 
 	
 	```
-	cd /var/www/FlaskApp
-	sudo nano flaskapp.wsgi 
+	cd /var/www/catalog
+	sudo nano catalog.wsgi 
 	```
 2. Add the following lines of code to the flaskapp.wsgi file:
 	
@@ -183,7 +183,7 @@ Configure the Uncomplicated Firewall (UFW) to only allow incoming connections fo
 	logging.basicConfig(stream=sys.stderr)
 	sys.path.insert(0,"/var/www/FlaskApp/")
 
-	from FlaskApp import app as application
+	from app import app as application
 	application.secret_key = 'Add your secret key'
 	```
 
